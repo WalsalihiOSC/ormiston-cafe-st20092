@@ -1,0 +1,167 @@
+[
+
+    {
+        "name": "Beef Burger",
+        "category": "Lunch",
+        "price": 5.50
+    },
+    {
+        "name": "Chicken Burger",
+        "category": "Lunch",
+        "price": 5.50
+    },
+    {
+        "name": "Hot-Dog",
+        "category": "Lunch",
+        "price": 5.50
+    },
+    {
+        "name": "Teriyaki Chicken",
+        "category": "Lunch",
+        "price": 5.50
+    },
+    {
+        "name": "Butterchicken Wrap",
+        "category": "Lunch",
+        "price": 5.50
+    },
+    {
+        "name": "Bacon and Egg Muffin",
+        "category": "Lunch",
+        "price": 5.50
+    },
+    {
+        "name": "BBQ Pork Sandwich",
+        "category": "Lunch",
+        "price": 5.50
+    },
+    {
+        "name": "Burrito",
+        "category": "Lunch",
+        "price": 5.50
+    },
+
+
+
+    {
+        "name": "Fries",
+        "category": "Sides",
+        "price": 3.00
+    },
+    {
+        "name": "Wedges",
+        "category": "Sides",
+        "price": 5.50
+    },
+    {
+        "name": "Nachoes",
+        "category": "Sides",
+        "price": 5.50
+    },
+    {
+        "name": "Salad",
+        "category": "Sides",
+        "price": 5.50
+    },
+    {
+        "name": "Rice",
+        "category": "Sides",
+        "price": 5.50
+    },
+    {
+        "name": "Chicken Stix",
+        "category": "Sides",
+        "price": 5.50
+    },
+    {
+        "name": "Hashbrown",
+        "category": "Sides",
+        "price": 5.50
+    },
+    
+
+
+    {
+        "name": "Peach Ice Tea",
+        "category": "Drinks",
+        "price": 5.50
+    },
+    {
+        "name": "Peach Ice Tea Raspberry",
+        "category": "Drinks",
+        "price": 5.50
+    },
+    {
+        "name": "Iced Coffee",
+        "category": "Drinks",
+        "price": 5.50
+    },
+    {
+        "name": "Iced Chocolate",
+        "category": "Drinks",
+        "price": 5.50
+    },
+    {
+        "name": "Milk",
+        "category": "Drinks",
+        "price": 5.50
+    },
+    {
+        "name": "Chocolate Milk",
+        "category": "Drinks",
+        "price": 5.50
+    },
+    {
+        "name": "Strawberry Milk",
+        "category": "Drinks",
+        "price": 5.50
+    },
+
+
+
+    {
+        "name": "Cookie",
+        "category": "Dessert",
+        "price": 5.50
+    },
+    {
+        "name": "Chocolate Pie",
+        "category": "Dessert",
+        "price": 5.50
+    },
+    {
+        "name": "Paddlepop Icy Twist",
+        "category": "Dessert",
+        "price": 5.50
+    },
+    {
+        "name": "Paddlepop Cyclone",
+        "category": "Dessert",
+        "price": 5.50
+    },
+    {
+        "name": "Paddlepop Tubes",
+        "category": "Dessert",
+        "price": 5.50
+    },
+    {
+        "name": "Orange Juicee",
+        "category": "Dessert",
+        "price": 5.50
+    },
+    {
+        "name": "Berry Juicee",
+        "category": "Dessert",
+        "price": 5.50
+    },
+    {
+        "name": "Chocolate Moosey",
+        "category": "Dessert",
+        "price": 5.50
+    },
+    {
+        "name": "Blueberry Moosey",
+        "category": "Dessert",
+        "price": 5.50
+    }
+]

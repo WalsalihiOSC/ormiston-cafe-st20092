@@ -1,0 +1,185 @@
+from tkinter import*
+import json
+
+class Data:
+
+    def __init__(self):
+    
+        with open ('items.json', 'r') as f:
+            self.items = json.load(f)
+
+        self.order = []
+
+    def additem(self, info):
+        self.order.append(info["name"])
+
+    def removeitem(self, info):
+        self.order.remove(info["name"])
+        self.OrderItemFrame.destroy(info)
+    
+
+class GUI:
+
+    def __init__(self, parent):
+
+        self.data = Data()
+
+        def tomenuframe(): #function to show menu
+            
+            NewOrderFrame.grid_forget()
+
+            self.MenuFrame = Frame()
+            self.Menu = Label(self.MenuFrame, text = "menu")
+            self.MenuItemFrame = Frame(self.MenuFrame)
+            self.CheckoutButton = Button(self.MenuFrame, text = "VIEW ORDER", command = tocheckoutframe)
+
+            self.CategoryButtonFrame = Frame(self.MenuFrame) #category frame
+            self.LunchButton = Button(self.CategoryButtonFrame, text = "LUNCH", command = showlunch)
+            self.LunchButton.grid()
+
+            self.SidesButton = Button(self.CategoryButtonFrame, text = "SIDES", command = showsides)
+            self.SidesButton.grid()
+
+            self.DrinksButton = Button(self.CategoryButtonFrame, text = "DRINKS", command = showdrinks)
+            self.DrinksButton.grid()
+
+            self.DessertButton = Button(self.CategoryButtonFrame, text = "DESSERT", command = showdesserts)
+            self.DessertButton.grid()
+
+            self.MenuFrame.grid()
+            self.Menu.grid()
+            self.CategoryButtonFrame.grid(row = 0)
+            self.MenuItemFrame.grid()
+            self.CheckoutButton.grid(row = 2)
+            
+
+        def tocheckoutframe(): #function to show checkout
+            self.CheckoutFrame = Frame()
+            self.MenuButton = Button(self.CheckoutFrame, text = "CANCEL", command = tomenuframe)
+
+            self.MenuButton.grid()
+            self.CheckoutFrame.grid()
+
+            self.OrderFrame = Frame(self.CheckoutFrame, bg="green")
+            self.OrderFrame.grid(row=2)
+
+            for o in self.data.order:
+                self.OrderItemFrame = Frame(self.OrderFrame)
+                self.OrderItemLabel = Label(self.OrderItemFrame, text = o)
+                self.RemoveButton = Button(self.OrderItemFrame, text = "REMOVE", command = self.data.removeitem)
+
+                self.OrderItemFrame.grid()
+                self.OrderItemLabel.grid()
+                self.RemoveButton.grid()
+
+            self.MenuFrame.grid_forget()
+
+        def showlunch(): #function show lunch frame hides other 3, PROBABLY A BETTER WAY
+            LunchMenuFrame = Frame(self.MenuItemFrame)
+
+            for i in self.data.items:
+                if i["category"] == "Lunch":
+                    itemname = i["name"]
+                    itemprice = i["price"]
+                    self.ItemFrame = Frame(LunchMenuFrame, highlightbackground="gray", highlightthickness=2)
+                    itemnamelabel = Label(self.ItemFrame, text = itemname)
+                    itempricelabel = Label(self.ItemFrame, text = f"${itemprice}")
+                    addbutton = Button(self.ItemFrame, text = "Add", command = self.data.additem(i))
+
+                    self.ItemFrame.grid()
+                    itemnamelabel.grid()
+                    itempricelabel.grid()
+                    addbutton.grid()
+
+            SidesMenuFrame.grid_forget()
+            DrinksMenuFrame.grid_forget()
+            DessertsMenuFrame.grid_forget()
+
+        def showsides():
+            SidesMenuFrame.grid()
+            self.LunchMenuFrame.grid_forget()
+            DrinksMenuFrame.grid_forget()
+            DessertsMenuFrame.grid_forget()
+
+        def showdrinks():
+            DrinksMenuFrame.grid()
+            self.LunchMenuFrame.grid_forget()
+            SidesMenuFrame.grid_forget()
+            DessertsMenuFrame.grid_forget()
+
+        def showdesserts():
+            DessertsMenuFrame.grid()
+            self.LunchMenuFrame.grid_forget()
+            SidesMenuFrame.grid_forget()
+            DrinksMenuFrame.grid_forget()
+            
+        ##New Order Frame
+        NewOrderFrame = Frame(parent)
+        NewOrder = Label(NewOrderFrame, text = "BEGIN YOUR ORDER")
+        MenuButton = Button(NewOrderFrame, text = "NEW ORDER", command = tomenuframe)
+        
+        NewOrderFrame.grid()
+        NewOrder.grid()
+        MenuButton.grid()
+            
+                #WRITE ADD FUNCTION, WRITE CATEGORY, PRINT ORDER AND COST IN CHECKOUT, ADD REMOVE ITEM IN CHECKOUT, SEE IF YOU CAN APPEND ORDER TO A NEW DOC.
+
+        ###Sides Frame
+        SidesMenuFrame = Frame(self.MenuItemFrame)
+
+        for i in self.data.items:
+            if i["category"] == "Sides":
+                itemname = i["name"]
+                itemprice = i["price"]
+                self.ItemFrame = Frame(SidesMenuFrame, highlightbackground="gray", highlightthickness=2)
+                itemnamelabel = Label(self.ItemFrame, text = itemname)
+                itempricelabel = Label(self.ItemFrame, text = f"${itemprice}")
+                addbutton = Button(self.ItemFrame, text = "Add", command = self.data.additem(i))
+
+                self.ItemFrame.grid()
+                itemnamelabel.grid()
+                itempricelabel.grid()
+                addbutton.grid()
+
+
+        ###Drinks Frame
+        DrinksMenuFrame = Frame(self.MenuItemFrame)
+
+        for i in self.data.items:
+            if i["category"] == "Drinks":
+                itemname = i["name"]
+                itemprice = i["price"]
+                self.ItemFrame = Frame(DrinksMenuFrame, highlightbackground="gray", highlightthickness=2)
+                itemnamelabel = Label(self.ItemFrame, text = itemname)
+                itempricelabel = Label(self.ItemFrame, text = f"${itemprice}")
+                addbutton = Button(self.ItemFrame, text = "Add", command = self.data.additem(i))
+
+                self.ItemFrame.grid()
+                itemnamelabel.grid()
+                itempricelabel.grid()
+                addbutton.grid()
+
+        ###Dessert Frame
+        DessertsMenuFrame = Frame(self.MenuItemFrame)
+
+        for i in self.data.items:
+            if i["category"] == "Dessert":
+                itemname = i["name"]
+                itemprice = i["price"]
+                self.ItemFrame = Frame(DessertsMenuFrame, highlightbackground="gray", highlightthickness=2)
+                itemnamelabel = Label(self.ItemFrame, text = itemname)
+                itempricelabel = Label(self.ItemFrame, text = f"${itemprice}")
+                addbutton = Button(self.ItemFrame, text = "Add", command = self.data.additem(i))
+
+                self.ItemFrame.grid()
+                itemnamelabel.grid()
+                itempricelabel.grid()
+                addbutton.grid()
+
+
+if __name__ == "__main__":
+    root = Tk()
+    root.geometry("807x1080")
+    GUI(root)
+    root.title("Ormiston Cafe")
+    root.mainloop()
